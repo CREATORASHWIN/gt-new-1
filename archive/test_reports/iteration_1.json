@@ -1,0 +1,18 @@
+{
+  "passed": 9,
+  "failed": 0,
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "checks": [
+    {"criterion":"Working enquiry form API","name":"test_tscheck_enquiry.py","lane":"backend","status":"passed","evidence":"POST /api/enquiries returned 200 with persisted payload and reference_number matching ZZZOR-[A-F0-9]{4}; short message returned 422."},
+    {"criterion":"Premium Ganesh Tech landing shell","name":"premium-ganesh-tech-landing","lane":"browser","status":"passed","evidence":"Hero h1, ganesh tech brand, navigation contact, and Get Started control visible."},
+    {"criterion":"Anchored navigation and responsive menu","name":"anchored-navigation-responsive-menu","lane":"browser","status":"passed","evidence":"Desktop nav testids all visible; mobile toggle opened mobile navigation and contact navigation reached contact section."},
+    {"criterion":"3D-inspired enterprise visual system","name":"network-sphere-visual-system","lane":"browser","status":"passed","evidence":"Interactive hero network sphere and Cloud, Secure, Compute, AI Core node testids visible."},
+    {"criterion":"Services and solutions content","name":"services-and-solutions-content","lane":"browser","status":"passed","evidence":"Services grid/cards and cybersecurity, AI automation, and cloud sections visible."},
+    {"criterion":"Industries, technology stack, and work","name":"industries-technology-case-studies","lane":"browser","status":"passed","evidence":"Industries grid, technology marquee, three case study cards, and View Case Studies control visible."},
+    {"criterion":"Why us, process, and CTA","name":"why-us-process-cta","lane":"browser","status":"passed","evidence":"Sixth advantage, sixth process step, CTA headline and Start a Project control visible."},
+    {"criterion":"Working enquiry form UI","name":"enquiry-form-submission","lane":"browser","status":"passed","evidence":"Filled all six fields; POST /api/enquiries returned success and UI displayed ZZZOR-XXXX reference."},
+    {"criterion":"Contact details and footer","name":"contact-details-footer-controls","lane":"browser","status":"passed","evidence":"Contact details, ZZZOR reference, footer grid, email, and phone controls visible."}
+  ]
+}
