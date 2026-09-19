@@ -1,0 +1,40 @@
+{
+  "iteration": 5,
+  "mode": "generate",
+  "passed": 4,
+  "failed": 0,
+  "checks": [
+    {
+      "criterion": "Desktop header content visibility",
+      "name": "desktop-header-content-painted",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "At 1920x940 and 1440x900, brand icon+text, all 8 nav-link-* labels, and header-get-started-button are visible AND confirmed painted-on-top via document.elementFromPoint at each control's center returning the control's own data-testid (not the blur pseudo-element). Screenshots: desktop-header-content-painted-header-1920x940.png, ...header-1440x900.png show fully legible header."
+    },
+    {
+      "criterion": "Desktop header interaction",
+      "name": "desktop-header-nav-interaction",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "At 1920x940: clicking nav-link-about/services/solutions/industries/technologies/projects/contact each scrolled the matching *-section into viewport; header-get-started-button click scrolled contact-section into view; brand-logo-button click scrolled hero-section back into view. Screenshot: desktop-header-nav-interaction-after-brand-click.png."
+    },
+    {
+      "criterion": "Header visual layering",
+      "name": "header-glass-layering-no-overlap",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "site-header computed isolation === 'isolate'. For brand-logo-text and all 8 nav-link-* plus header-get-started-button, elementFromPoint at each control's screen center resolved to that exact data-testid (no decorative overlay intercepting). console_errors array from run was empty (no console/failed-request errors). Screenshot: header-glass-layering-no-overlap-header-full.png. Source confirms fix: index.css site-header::before uses z-index:-1 inside an isolate stacking context."
+    },
+    {
+      "criterion": "Mobile navigation regression safety",
+      "name": "mobile-nav-fullheight-menu",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Re-ran persisted check at 390x844: brand visible, hamburger opens full-height (>700px) panel with links + Start a Project CTA visible/touchable, body scroll locked while open; after selecting a link, 240ms exit animation completes, panel hides, body scroll restored. Screenshots: mobile-nav-fullheight-menu-menu-open.png, mobile-nav-fullheight-menu-menu-closed-contact.png."
+    }
+  ],
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "notes": "Backend pytest suite re-run as sanity check (4 passed, 0.72s) — no new API-bearing criteria in this briefing (all 4 criteria are header visual/interaction concerns with no dedicated API surface). All 4 matrix criteria have dedicated new/reused browser checks and all passed, confirming the header pseudo-element z-index:-1 + isolate fix resolves the previously-hidden desktop header content while preserving mobile nav behavior."
+}

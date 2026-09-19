@@ -1,0 +1,18 @@
+{
+  "passed": 9,
+  "failed": 0,
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "checks": [
+    {"criterion":"Working enquiry submission (API)","name":"test_tscheck_enquiry_submission.py","lane":"backend","status":"passed","evidence":"POST /api/enquiries with unique tscheck- payload returned 200, reference_number matched ZZZOR-[A-F0-9]{4}, row present in GET /api/enquiries; short message returned 422."},
+    {"criterion":"Expanded service catalogue","name":"services-catalogue-nine-cards","lane":"browser","status":"passed","evidence":"service-card-01..09 all visible; service-title-07/08/09 = Managed IT Services / Data & Analytics / Business Continuity."},
+    {"criterion":"Service detail content","name":"service-detail-dialog-content","lane":"browser","status":"passed","evidence":"service-detail-dialog opened with title, description, 'What we deliver' and 'Business outcomes' columns, and closed via close button."},
+    {"criterion":"Service enquiry handoff","name":"service-enquiry-handoff-prefill","lane":"browser","status":"passed","evidence":"Request this service on card 09 closed dialog, scrolled contact section into viewport, and contact-service-select value became 'Business Continuity'."},
+    {"criterion":"Expanded technology ecosystem","name":"technology-ecosystem-categories","lane":"browser","status":"passed","evidence":"Marquee contains Cloud, AI, Cybersecurity, Networking, Databases, DevOps, Web, Mobile, Automation; technology-group-3 opened technology-detail-dialog with Platforms & practices / Best-fit use cases columns."},
+    {"criterion":"Project detail briefs","name":"project-detail-brief-content","lane":"browser","status":"passed","evidence":"project-detail-dialog for 'Trust infrastructure' showed Challenge/Solution description, Implementation and Measured result columns, and Start a similar project button."},
+    {"criterion":"Project enquiry handoff","name":"project-enquiry-handoff-prefill","lane":"browser","status":"passed","evidence":"Start a similar project on 'Factory intelligence' closed dialog, scrolled to contact, set service select to 'Digital Transformation' and appended project context to message field."},
+    {"criterion":"Working enquiry submission (UI)","name":"enquiry-submission-success-reference","lane":"browser","status":"passed","evidence":"Filled unique tscheck- enquiry, POST /api/enquiries returned 200 with reference_number matching ZZZOR-[A-F0-9]{4}, and the reference text was visible on page (toast)."},
+    {"criterion":"Responsive and error-free interaction","name":"responsive-mobile-service-dialog","lane":"browser","status":"passed","evidence":"At 390x844 viewport, mobile menu, service dialog, and enquiry handoff worked end to end with zero console_errors reported."}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "passed": 8,
+  "failed": 1,
+  "bugs": [
+    {
+      "criterion": "Responsive mobile navigation",
+      "name": "mobile-nav-fullheight-menu",
+      "severity": "high",
+      "description": "The mobile hamburger menu does not open a full-height touch panel. The header (<header data-testid=\"site-header\">) has 'backdrop-blur-xl' (backdrop-filter), which creates a new CSS containing block for position:fixed descendants. The mobile nav panel (data-testid=\"mobile-navigation\", classes 'fixed inset-x-0 bottom-0 top-[72px] ...') is a child of that header, so its 'bottom-0' resolves against the header's own ~72px box instead of the viewport. Result: the panel renders as a ~49px sliver just under the header instead of a full-height menu; the nav links (Home/About/Services/etc.) and the 'Start a Project' CTA are not visible or reachable. Confirmed twice (not flaky) with document.body.style.overflow correctly set to 'hidden' (scroll lock works) but bounding box height 48.99px vs expected >600px at 390x844.",
+      "evidence": "Screenshot /root/.emergent/automation_output/20260919_055503_441/mobile-nav-fullheight-menu-failure.png shows only a thin dark strip below the header with no visible menu items after clicking mobile-menu-toggle; computed style dump: {top:'72px', bottom:'0px', position:'fixed', height:'49px'} with parentTag HEADER (backdrop-blur-xl ancestor). Backend cross-check: GET http://localhost:8001/api/ -> 200 {\"message\":\"Hello World\"}, confirming this is a frontend-only rendering defect, not a backend/data issue. Fix suggestion: move the mobile menu panel outside the blurred header (e.g. render via portal, or apply backdrop-blur to an inner wrapper instead of the header element itself so it isn't the fixed-position containing block)."
+    }
+  ],
+  "action_items": [
+    {
+      "item": "Fix backdrop-blur-on-header containing-block bug so the mobile nav panel spans full viewport height on mobile.",
+      "severity": "high",
+      "related_check": "mobile-nav-fullheight-menu"
+    }
+  ],
+  "retest_needed": true,
+  "checks": [
+    {"criterion":"Faster premium hero motion","name":"hero-motion-sphere-responsive","lane":"browser","status":"passed","evidence":"Desktop 1440x900: hero-network-sphere positioned right of hero-copy, within viewport bounds; sphere-core transform sampled twice and confirmed changing (continuous rotation). Mobile 390x844: sphere stacks below hero-copy (y greater) and stays within 0-390px horizontal bounds."},
+    {"criterion":"Exact industries content","name":"industries-content-nine-sectors","lane":"browser","status":"passed","evidence":"industries-section text contains '04 / Industries' (case-insensitive), title 'Built for the pressure points that matter.', all 9 industry names (Healthcare...Energy) and their exact detail descriptions verbatim."},
+    {"criterion":"Desktop industry experience","name":"industries-desktop-hover-interaction","lane":"browser","status":"passed","evidence":"At 1440x900, hovering desktop-industry-control-3 (Manufacturing) updated desktop-industry-visual-system-label to 'Industrial digital twin' and signal to 'Line health 98.7%'; hovering control-9 (Energy) updated label to 'Smart grid control' and signal 'Grid balanced', matching seed facts."},
+    {"criterion":"Mobile industry experience","name":"industries-mobile-tap-interaction","lane":"browser","status":"passed","evidence":"At 390x844, tapping mobile-industry-control-9 expanded card: title 'Energy', detail visible, mobile-industry-visual-9-system-label = 'Smart grid control', visual box within 390px width."},
+    {"criterion":"Bold responsive typography","name":"bold-responsive-typography","lane":"browser","status":"passed","evidence":"hero-headline and section-title-04-/-industries computed fontWeight >= 700 at 1440x900, 768x1024 and 390x844; heading bounding boxes stayed within each viewport width (no overflow)."},
+    {"criterion":"Responsive mobile navigation","name":"mobile-nav-fullheight-menu","lane":"browser","status":"failed","evidence":"body scroll-lock correctly applied (overflow:hidden) but mobile-navigation panel height measured 48.99px instead of a full-height panel; see bugs[0]."},
+    {"criterion":"No responsive overflow","name":"no-overflow-multi-viewport","lane":"browser","status":"passed","evidence":"document.documentElement.scrollWidth <= viewport width at all 7 viewports (1440x900,1024x1366,768x1024,430x932,390x844,375x812,360x800); desktop-navigation or mobile-menu-toggle visible/reachable at each."},
+    {"criterion":"Existing content and functionality preserved","name":"existing-functionality-preserved","lane":"browser","status":"passed","evidence":"brand-logo-text='ganesh tech'; service-detail-dialog opened/closed via service-card-01; unique tscheck- enquiry POST /api/enquiries returned 200 with reference_number matching ^ZZZOR-[A-F0-9]{4}$, reference visible on page; site-footer and footer-copyright visible."},
+    {"criterion":"Existing content and functionality preserved (API)","name":"test_tscheck_enquiry_submission.py","lane":"backend","status":"passed","evidence":"pytest suite (4 tests incl. enquiry + enquiry_submission) passed: 'python -m pytest -q' -> '4 passed in 0.72s' against running server http://localhost:8001."}
+  ]
+}

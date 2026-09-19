@@ -1,0 +1,19 @@
+{
+  "iteration": 4,
+  "mode": "retest",
+  "passed": 1,
+  "failed": 0,
+  "checks": [
+    {
+      "criterion": "Responsive mobile navigation",
+      "name": "mobile-nav-fullheight-menu",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Re-ran persisted check mobile-nav-fullheight-menu at 390x844: hamburger opens full-height animated panel (>700px), all nav links + Start a Project CTA visible/touchable, body scroll locked while open. After selecting Industries, 240ms exit animation completed, panel hidden, body scroll restored. Screenshots: mobile-nav-fullheight-menu-menu-open.png, mobile-nav-fullheight-menu-menu-closed-contact.png. Previously failing check now passes after header backdrop-filter fix (moved to pseudo-element, fixed menu now uses viewport as containing block)."
+    }
+  ],
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "notes": "Only criterion in briefing (mobile nav) re-verified via existing named check per retest-mode instructions. Fix confirmed: previous failure (mobile-nav-fullheight-menu) is resolved."
+}
