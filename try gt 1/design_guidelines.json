@@ -1,0 +1,103 @@
+{
+  "theme_and_concept": {
+    "theme": "dark",
+    "primary_concept": "Premium futuristic 3D IT company with enterprise aesthetic. Combining cyberpunk, swiss poster precision, and architecture studio layouts.",
+    "brand_name": "ganesh tech",
+    "reference_number": "zzzor"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Outfit",
+      "weights": ["300", "500", "700", "900"],
+      "classes": "font-sans tracking-tight"
+    },
+    "body": {
+      "font_family": "IBM Plex Sans",
+      "weights": ["400", "500"],
+      "classes": "font-sans leading-relaxed tracking-wide text-slate-300"
+    },
+    "mono": {
+      "font_family": "JetBrains Mono",
+      "classes": "font-mono text-sm tracking-widest uppercase"
+    },
+    "instructions": "Install Google Fonts. Ensure headings are tightly tracked. Never use Inter for headings."
+  },
+  "colors": {
+    "background": {
+      "base": "#02040A",
+      "surface": "#090D1A",
+      "elevated": "#111827",
+      "glass": "rgba(17, 24, 39, 0.4)"
+    },
+    "text": {
+      "primary": "#F8FAFC",
+      "secondary": "#94A3B8",
+      "muted": "#475569"
+    },
+    "accent": {
+      "cyan": "#06B6D4",
+      "blue": "#3B82F6",
+      "purple": "#8B5CF6",
+      "glow": "rgba(6, 182, 212, 0.5)"
+    },
+    "borders": {
+      "subtle": "rgba(255,255,255,0.05)",
+      "highlight": "rgba(6, 182, 212, 0.3)"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-[#090D1A]/60 border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+    "glow_effects": "Use drop-shadow for icons and box-shadow for glowing cards. Example: hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]",
+    "gradients": "Subtle deep radial gradients in backgrounds to create depth. No harsh linear gradients on large surfaces.",
+    "grid_lines": "Use CSS background patterns (linear-gradient) for faint, technical grid lines in sections like Architecture or Process."
+  },
+  "layouts": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "bento_grid": "Grid with asymmetric spans. Use gap-6 or gap-8. Span logic: col-span-12 md:col-span-8 for hero features, col-span-4 for supporting cards.",
+    "spacing": "Generous spacing. py-24 or py-32 for sections."
+  },
+  "motion": {
+    "scroll": "Implement smooth scroll behavior.",
+    "hover": "Cards should have a 3D lift (-translate-y-2), increased border glow, and subtle rotation (hover:rotate-1 or 3d transforms using framer-motion).",
+    "entrance": "Staggered fade-up and scale-in using framer-motion (initial={{ opacity: 0, y: 30 }}).",
+    "css_3d": "For the hero 'interactive CSS 3D network sphere', use framer-motion to create multiple nested rings/circles with border-radius: 50%, dashed borders, and rotateX/rotateY/rotateZ animations over time."
+  },
+  "media": {
+    "image_urls": {
+      "hero_fallback": "https://images.unsplash.com/photo-1681924101087-922416cba14e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxmdXR1cmlzdGljJTIwc2VydmVyJTIwcm9vbSUyMDNkfGVufDB8fHx8MTc4OTE5NTM2MHww&ixlib=rb-4.1.0&q=85",
+      "cybersecurity": "https://images.unsplash.com/photo-1728739529355-31dcaefd82b7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHw0fHxjeWJlcnNlY3VyaXR5JTIwZGlnaXRhbCUyMHNoaWVsZCUyMGdsb3dpbmd8ZW58MHx8fHwxNzg5MTk1MzYwfDA&ixlib=rb-4.1.0&q=85",
+      "ai_brain": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwYnJhaW4lMjBuZXR3b3JrJTIwM2R8ZW58MHx8fHwxNzg5MTk1MzgwfDA&ixlib=rb-4.1.0&q=85",
+      "cloud": "https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMGluZnJhc3RydWN0dXJlJTIwM2QlMjBhYnN0cmFjdHxlbnwwfHx8fDE3ODkxOTUzODB8MA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "sections": {
+    "nav": "Sticky with backdrop-blur-xl (Glassmorphism). Include 'ganesh tech' logo. Links: Home, About, Services, Solutions, Industries, Technologies, Projects, Contact.",
+    "hero": "Headline: 'Transforming Technology. Powering the Future.' CSS 3D interactive sphere with glowing dashed rings and floating lucide icons (Cloud, Shield, Server, Database) mapped in 3D space using Framer Motion.",
+    "about": "Title: 'Technology Built Around Your Business'. 3D floating architecture showing Flow: Business -> Cloud -> Data -> AI -> Security -> Apps. Stats bento box.",
+    "services": "Six premium 3D cards with glowing borders on hover. IT Infrastructure, Cybersecurity, Cloud, AI, Software Dev, Digital Transformation.",
+    "cybersecurity": "Full-width dramatic section. Background image: `cybersecurity` URL. Huge CTA: 'Protect Your Business'.",
+    "ai_automation": "Immersive section featuring `ai_brain` image.",
+    "cloud": "Futuristic visualization with `cloud` image. Flow of animated data streams (using absolute positioning and motion.div).",
+    "industries": "Hover cards that lift with 3D perspective.",
+    "tech_stack": "Horizontal animated marquee/ecosystem of technologies using clean glass cards.",
+    "case_studies": "Premium project cards.",
+    "why_choose_us": "6 advantages with glowing icons.",
+    "process": "Visual 3D timeline (01 to 06) with glowing animated connector lines.",
+    "cta": "Large CTA. Background with rotating 3D sphere (CSS).",
+    "contact": "Premium contact form (HTML/Shadcn). Store enquiries in app state or just preventDefault. Address and details."
+  },
+  "accessibility": {
+    "contrast": "Ensure all text on dark backgrounds is legible (white or very light gray).",
+    "testing": "All interactive elements MUST have `data-testid`."
+  },
+  "instructions_to_main_agent": [
+    "Use framer-motion for all scroll and hover animations. It is crucial for the 'premium 3D' feel.",
+    "Build a CSS-based 3D sphere component for the hero section: create multiple absolute-positioned divs with border-radius 50%, border dashed cyan/blue, rotated on X/Y axes, and animated continuously to simulate a 3D network globe.",
+    "Use Lucide-react for icons, given a glowing drop-shadow filter.",
+    "Do not use generic template styles. Apply padding generously (py-24, gap-12).",
+    "Ensure 'ganesh tech' is the company name used, and 'zzzor' is used as a reference number in the footer or contact section.",
+    "Use pure Tailwind for layout structures, avoid shadcn 'Card' wrappers for complex asymmetric designs.",
+    "Do not use transparent background on header; use high-saturation glassmorphism: 'bg-[#090D1A]/80 backdrop-blur-md border-b border-white/10'."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": "You tend to converge toward generic outputs. Avoid this: make creative, distinctive frontends. DO NOT apply universal transition 'transition: all'. NEVER use AI assistant Emojis. Use 2-3x more spacing. Create depth through layered design elements with z-index hierarchy. All interactive and key informational elements MUST include a data-testid attribute."
+}
