@@ -91,7 +91,7 @@ function NetworkSphere() {
       <div className="sphere-node node-a" /><div className="sphere-node node-b" /><div className="sphere-node node-c" /><div className="sphere-node node-d" />
       <div className="sphere-logo-mark"><img src="/zylo-core-mark.png" alt="Zylo Core mark" /></div>
     </motion.div>
-    {heroCapabilities.map(({ label, icon: Icon, top, left, color, motion: floatMotion }, index) => <motion.button type="button" key={label} onClick={() => label === "Secure" && window.dispatchEvent(new CustomEvent("open-security-layer"))} className="sphere-badge" style={{ top, left, "--badge-accent": color } as CSSProperties} animate={{ y: floatMotion }} transition={{ duration: 2.1 + index * 0.16, repeat: Infinity, ease: "easeInOut" }} data-testid={`hero-${label.toLowerCase().replaceAll(" ", "-")}-node`}><Icon size={17} /><span>{label}</span></motion.button>)}
+    {heroCapabilities.map(({ label, icon: Icon, top, left, color, motion: floatMotion }, index) => <motion.button type="button" key={label} onClick={() => label === "Secure" && window.dispatchEvent(new CustomEvent("open-security-layer"))} className="sphere-badge" style={{ top, left, "--badge-accent": color } as CSSProperties} animate={{ y: [...floatMotion] }} transition={{ duration: 2.1 + index * 0.16, repeat: Infinity, ease: "easeInOut" }} data-testid={`hero-${label.toLowerCase().replaceAll(" ", "-")}-node`}><Icon size={17} /><span>{label}</span></motion.button>)}
     <span className="sphere-caption" data-testid="hero-sphere-caption">ZYLO CORE / 01 · LIVE SYSTEM</span>
   </motion.div>;
 }
